@@ -1165,7 +1165,9 @@ footer {
 .hero-section_card:hover .hero-section_card_title {
   color: #00a651; /* Change the title color on hover */
 }
-
+ .info {
+    text-align: justify;
+  }
 @media (width < 768px) {
   .info {
     font-size: 12px;
