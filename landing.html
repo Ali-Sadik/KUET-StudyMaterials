@@ -383,7 +383,70 @@
           font-size: 80px;
           margin-bottom: 200px;
         }
+        .mouse-scroll
+        {
+          margin-left: 35px;
+        }
+        .mouse
+        {
+          margin-top: -40px;
+        }
       }
+
+
+      .mouse-scroll {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.mouse {
+	width: 36px;
+height: 60px;
+
+	border: 4px solid #00a651;
+	border-radius: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: start;
+  margin-left: -40px;
+}
+
+.wheel {
+	width: 8px;
+	height: 16px;
+	background-color: #00a651;
+	border-radius: 4px;
+	animation: scroll 1s infinite;
+	margin-top: 8px;
+  
+}
+
+/* Scroll animation */
+@keyframes scroll {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(8px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.arrow {
+	width: 10px;
+	height: 10px;
+	border-right: 2px solid #00a651;
+	border-bottom: 2px solid #00a651;
+	transform: rotate(45deg);
+  margin-left: -40px;
+}
+      
     </style>
   </head>
   <body>
@@ -418,19 +481,25 @@
           <div class="two-button">
             <button
               class="w-btn btn"
-              onclick="openInNewTab('http://192.168.0.102:2999/login')"
+              onclick="openInNewTab('https://students-login.vercel.app/login')"
             >
               I'm a Student
             </button>
             <button
               class="t-btn btn"
-              onclick="openInNewTab('http://192.168.0.102:2998/login')"
+              onclick="openInNewTab('https://teachers-login.vercel.app/login')"
             >
               I'm a Teacher
             </button>
           </div>
         </div>
       </div>
+      <div class="mouse-scroll" id="cs-down">
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+        <div class="arrow"></div>
+    </div>
     </section>
 
     <script>
@@ -442,6 +511,18 @@
         var win = window.open(url, "_blank");
         win.focus();
       }
+
+      document.querySelector('#cs-down').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Access the parent document from within the iframe
+    const parentDocument = window.parent.document;
+    
+    // Scroll to the 'discover' section in the parent document
+    const discoverSection = parentDocument.querySelector('#discover');
+    if (discoverSection) {
+        discoverSection.scrollIntoView({ behavior: 'smooth' });
+    }
+});
     </script>
   </body>
 </html>
