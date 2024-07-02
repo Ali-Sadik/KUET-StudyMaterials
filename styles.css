@@ -336,8 +336,6 @@
 
     & i {
       font-size: var(--font-size-5);
-
-      /* VisBug ♥ */
       margin-inline-start: var(--size-00);
     }
 
@@ -394,31 +392,28 @@
   }
 
   .NavLink {
-    color: var(--text-1);
+    color: white;
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-5);
     text-decoration-color: currentColor;
     text-decoration-thickness: var(--border-size-2);
     text-underline-offset: 0.5ex;
     text-decoration: none;
-    transition: color 200ms ease;
+    transition: transform 0.3s ease; /* Transition for color and underline color */
 
-    /* &:hover {
-      text-decoration: underline;
-    } */
-
-    &:hover {
-      color: var(--brand-1);
-    }
-
-    &:target {
-      color: var(--brand-1);
-    }
-
-    @media (width < 768px) {
+    @media (max-width: 768px) {
+      /* Use max-width for media query */
       font-size: var(--font-size-5);
       padding-inline: var(--size-4);
     }
+  }
+  .NavLink:hover {
+    transform: scale(1.05);
+    color: black;
+  }
+
+  .kuetheader {
+    display: none;
   }
 
   .Logo {
@@ -701,15 +696,15 @@ body {
       .btn {
         border: 1px solid white;
         background-color: transparent;
-        border-radius: 30px;
-        padding: 14px 18px;
+        border-radius: 50px;
+        padding: 14px 28px;
         text-transform: uppercase;
         font-family: "Manrope", sans-serif;
         font-size: 0.8rem;
         letter-spacing: 3px;
         color: white;
         text-decoration: none;
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
         &:hover {
           background: #00a651;
           border-color: #00a651;
@@ -960,25 +955,22 @@ footer {
 }
 
 @media (width < 768px) {
-  #six h1 {
-    max-width: 700px;
-    font-size: 40px;
-  }
-  #six {
-    padding-left: 10%;
+  .heading {
+    font-size: 15px;
   }
   #five h1 {
     font-size: 33px;
     font-weight: 600;
-    line-height: 45px;
+    line-height: 33px;
     letter-spacing: 1px;
     margin: 20px 0 20px 0;
   }
+ 
 }
 
 .joinbtn {
   padding: 0.85em 2em;
-  border-radius: 30px;
+  border-radius: 50px;
   border: none;
   font-family: "Manrope", sans-serif;
   font-size: 0.95rem;
@@ -989,28 +981,6 @@ footer {
 .joinbtn:hover {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
-}
-
-.joinbtn:active {
-  animation: bounce 0.3s;
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(0.9);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  70% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .w-joinbtn {
@@ -1034,6 +1004,9 @@ footer {
   color: white;
   padding: 80px 3%;
 }
+#six h5{
+  color: #00a651;
+}
 
 #six h1 {
   font-size: 33px;
@@ -1041,6 +1014,17 @@ footer {
   line-height: 45px;
   letter-spacing: 1px;
   margin: 20px 0 20px 0;
+}
+
+@media (width <768px)
+{
+  #six h1 {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 1px;
+    margin: 20px 0 20px 0;
+  }
 }
 
 #five {
@@ -1165,10 +1149,43 @@ footer {
 .hero-section_card:hover .hero-section_card_title {
   color: #00a651; /* Change the title color on hover */
 }
- .info {
-    text-align: justify;
-  }
+
+.info {
+  text-align: justify;
+}
+
 @media (width < 768px) {
+.important
+{
+  font-size: 27px;
+  color: #00a651;
+}
+.quick
+{
+  font-size: 27px;
+  color: #00a651;
+}
+
+  .hero-section_card_description {
+    font-size: 15px;
+  }
+  .ultimate {
+    font-size: 35px;
+    color: white;
+    user-select: none;
+    text-align: center;
+  }
+  .topconr1 {
+    font-size: 15px;
+  }
+  #five h1 {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 1px;
+    margin: 20px 0 20px 0;
+  }
+
   .info {
     font-size: 12px;
     text-align: justify;
@@ -1182,17 +1199,19 @@ footer {
     font-weight: 400;
     margin-left: 0px;
   }
+
   .NavLink {
-    color: var(--text-1);
+    color: white;
     font-size: 20px;
-    font-weight: var(--font-weight-5);
+    font-weight: var(--font-weight-6);
     text-decoration-color: currentColor;
     text-decoration-thickness: var(--border-size-2);
     text-underline-offset: 0.5ex;
     text-decoration: none;
-    transition: color 1ms ease;
   }
-
+  .NavLink:hover {
+    transform: scale(1);
+  }
   #six {
     background: url(join1dark.png);
     background-size: 280%;
@@ -1220,4 +1239,18 @@ footer {
     height: 0;
     overflow: hidden;
   }
+}
+
+.ultimate {
+  color: white;
+  user-select: none;
+}
+
+.topcon {
+  color: #000000;
+  user-select: none;
+}
+
+.topcontable1 {
+  user-select: none;
 }
