@@ -66,13 +66,14 @@
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         display: grid;
+        height: 500px;
         place-items: center;
         transition: transform 0.6s ease, box-shadow 0.6s ease;
       }
       .wrapper-for-arrows:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
-}
+        transform: scale(1.05);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+      }
 
       .review-wrap {
         display: flex;
@@ -171,29 +172,34 @@
         }
       }
 
-      @media (width < 768px)
-      {
+      @media (width < 768px) {
         .wrapper-for-arrows {
-        position: relative;
-        width: 93%;
-        border-radius: 12px;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        display: grid;
-        place-items: center;
-      }
+          position: relative;
+          width: 93%;
+          border-radius: 12px;
+          box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          display: grid;
+          place-items: center;
+          height: 500px;
+        }
 
-      .wrapper-for-arrows:hover {
-        transform: scale(1);
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-    }
+        .wrapper-for-arrows:hover {
+          transform: scale(1);
+          box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        }
 
+        #description {
+          font-size: 13px;
+          text-align: center;
+          line-height: normal;
+        }
       }
     </style>
   </head>
   <body>
     <div class="content-wrapper">
-      <h1 style="user-select: none;"><strong>Student Reviews</strong></h1>
+      <h1 style="user-select: none"><strong>Student Reviews</strong></h1>
       <div class="blue-line"></div>
       <div class="wrapper-for-arrows">
         <div id="reviewWrap" class="review-wrap">
@@ -222,6 +228,13 @@
       const surpriseMeBtn = document.getElementById("surpriseMeBtn");
 
       let people = [
+      {
+          photo: "url('joya.jpg')",
+          name: "Joyasree Joya",
+          profession: "ECE 2K21",
+          description:
+            "First of all I am really very grateful for my some batchmates to make this beautiful website.When I came to kuet ,it was very difficult to find information about study.But after few months,some of my friend created this website where I can easily find any study related information.This is really a well organized website and highly recommend.",
+        },
         {
           photo: 'url("08.jpg")',
           name: "Rakib Hasan",
@@ -292,6 +305,14 @@
           description:
             "Study Materials is like a magical potion app. What should we do now? Where should we start from? It's not easy to tackle these types of problems. Finding materials is also easy. Since it's on mobile, accessing it from anywhere is easy.",
         },
+        {
+          photo: "url('kamru.jpg')",
+          name: "Kamruzzaman",
+          profession: "ECE 2K21",
+          description:
+            "Study Materials is a great work by my fellow batchmates and teammates. This is the result of so much dedication and effort. This platform will be very helpful for the freshers. I was also looking for something like this when I was a newcomer, but didn't find anything similar.",
+        },
+        
       ];
 
       imgDiv.style.backgroundImage = people[0].photo;
