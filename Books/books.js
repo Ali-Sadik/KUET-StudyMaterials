@@ -151,7 +151,7 @@ function showProgressBar(callback) {
 document.getElementById("home").addEventListener("click", function (event) {
   event.preventDefault(); // Prevent default link behavior
   showProgressBar(function () {
-    window.location.href = "http://192.168.0.102:2999/ecehomepage"; // Redirect after progress bar animation completes
+    window.location.href = "../index.html"; // Redirect after progress bar animation completes
   }); // Show progress bar when link is clicked
 });
 
