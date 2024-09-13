@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" href="../public/favicon.ico" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Slide</title>
+    <link rel="stylesheet" href="slide.css">
+  </head>
+  <body>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="header-container">
+      <button class="buttonhome" id="home">
+        <i class="material-icons">home</i>
+        <span class="button-text">Home</span>
+      </button>
+    </div>
+
+    <div class="filter">
+      <div class="search">
+        <input type="text" class="search__input" placeholder="Search slides" />
+        <button class="search__button"><i class="fa fa-search"></i></button>
+      </div>
+
+      <button class="button" data-filter="all">All</button>
+      <button class="button">ECE 1109</button>
+      <button class="button">Ph 1109</button>
+    </div>
+
+    <section class="grid">
+      <a
+        class="card"
+        href="https://drive.google.com/file/d/1OCGW4faaMrNay1EntWYJ2EPevrxyOito/view"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+        <div class="card__content">
+          <p class="card__location">ECE 1109</p>
+          <h3 class="card__title">Commucation Systems</h3>
+          <p class="card__description">
+            Publisher:Prof. Dr. Monir Hossen sir</br>
+            Date:19/02/22
+          </p>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="https://drive.google.com/file/d/1D0ENzc4CT-mA56Vmavfjvz7FhKoOalPw/view"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+       
+        <div class="card__content">
+          <p class="card__location">Ph 1109</p>
+          <h3 class="card__title">Theory of Lights</h3>
+          <p class="card__description">
+            Publisher:Prof. Dr. Jolly Sultana Ma'am</br>
+            Date:Unknown
+          </p>
+        </div>
+      </a>
+
+
+    </section>
+<script src="slide.js"></script>
+  </body>
+</html>

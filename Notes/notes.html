@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" href="../public/favicon.ico" />
+    <link rel="stylesheet" href="notes.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Notes</title>
+  </head>
+  <body>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="header-container">
+      <button class="buttonhome" id="home">
+        <i class="material-icons">home</i>
+        <span class="button-text">Home</span>
+      </button>
+    </div>
+
+    <div class="filter">
+      <div class="search">
+        <input type="text" class="search__input" placeholder="Search notes" />
+        <button class="search__button"><i class="fa fa-search"></i></button>
+      </div>
+
+      <button class="button" data-filter="all">All</button>
+      <button class="button">ECE 1109</button>
+      <button class="button">EEE 1109</button>
+      <button class="button">Math 1109</button>
+      <button class="button">Ph 1109</button>
+      <button class="button">Hum 1109</button>
+    </div>
+
+    <section class="grid">
+      <a
+        class="card"
+        href="#"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+        <div class="card__content">
+          <p class="card__location">ECE 1109</p>
+          <h3 class="card__title">Faruque Sir class note</h3>
+          <p class="card__description">
+            Publisher:Debraj Rohan</br>
+            Date:19/02/22
+          </p>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="#"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+        
+        <div class="card__content">
+          <p class="card__location">ECE 1109</p>
+          <h3 class="card__title">Faruque Sir full note</h3>
+          <p class="card__description">
+            Publisher:Senior</br>
+            Date:Unknown
+          </p>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="https://drive.google.com/drive/folders/1GWLwww9-s8aXRZPnhsUga4V0VuhbNW6r"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+        
+        <div class="card__content">
+          <p class="card__location">EEE 1109</p>
+          <h3 class="card__title">AC qb solve</h3>
+          <p class="card__description">
+            Publisher:Sadik</br>
+            Date:Unknown
+          </p>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="#"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+       
+        <div class="card__content">
+          <p class="card__location">Math 1109</p>
+          <h3 class="card__title">Note title</h3>
+          <p class="card__description">
+            Publisher:Sadik</br>
+            Date:Unknown
+          </p>
+        </div>
+      </a>
+
+      <a
+        class="card"
+        href="#"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+       
+        <div class="card__content">
+          <p class="card__location">Ph 1109</p>
+          <h3 class="card__title">Radioactivity</h3>
+          <p class="card__description">
+            Publisher:Shaira</br>
+            Date:Unknown
+          </p>
+        </div>
+      </a>
+    </section>
+    <div class="toggle-container">
+      <p class="darktext">Dark mode</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+<script src="notes.js"></script>   
+  </body>
+</html>

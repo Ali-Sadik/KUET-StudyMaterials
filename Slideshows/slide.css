@@ -1,0 +1,443 @@
+@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;900&display=swap);
+@import url(https://use.fontawesome.com/releases/v5.4.1/css/all.css);
+
+:root {
+  --white: #ffffff;
+  --dark: black;
+  --light: white;
+  --primary: #00a651;
+  --secondary: #fac384;
+  --shadow-color: 178, 169, 169;
+  --shadow: 1.4px 2.7px 3.6px rgba(var(--shadow-color), 0.017),
+    3.8px 7.5px 10px rgba(var(--shadow-color), 0.025),
+    9px 18.1px 24.1px rgba(var(--shadow-color), 0.033),
+    30px 60px 80px rgba(var(--shadow-color), 0.05);
+  --shadow-hover: 1.8px 3.7px 3.6px rgba(var(--shadow-color), 0.052),
+    5px 10.1px 10px rgba(var(--shadow-color), 0.075),
+    12.1px 24.4px 24.1px rgba(var(--shadow-color), 0.098),
+    40px 81px 80px rgba(var(--shadow-color), 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: "Manrope", sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  margin: 0 auto;
+  scroll-behavior: smooth;
+  padding: 2rem 1rem;
+}
+html.dark-mode,
+body.dark-mode {
+  background-color: #000a07;
+  color: var(--light);
+}
+/* Default scrollbar styles */
+body::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(
+    --scrollbar-thumb-color,
+    #ccc
+  ); /* Default thumb color */
+  border-radius: 6px; /* Rounded corners of the scrollbar thumb */
+}
+
+/* Dark mode scrollbar styles */
+body.dark-mode::-webkit-scrollbar-thumb {
+  background-color: var(
+    --scrollbar-thumb-color,
+    #333
+  ); /* Dark mode thumb color */
+}
+
+/* Light mode scrollbar styles */
+body.light-mode::-webkit-scrollbar-thumb {
+  background-color: var(
+    --scrollbar-thumb-color,
+    #ccc
+  ); /* Light mode thumb color */
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #00a651;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.return {
+  font-size: 20px;
+  color: #00a651;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  z-index: 9999;
+}
+
+#progress-bar {
+  height: 4px;
+  background: linear-gradient(to right, #00a651, #00f276);
+  width: 0;
+  animation: progressBarAnimation 1s forwards;
+}
+
+@keyframes progressBarAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.header-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-top: -60px;
+  margin-bottom: -60px;
+  margin-left: -25px;
+}
+
+.buttonhome {
+  color: #00a651;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Space between button and title */
+  position: relative; /* For positioning the pseudo-element */
+  text-decoration: none;
+}
+
+.buttonhome .material-icons {
+  vertical-align: middle;
+  margin-right: 5px; /* Space between icon and text */
+}
+
+.buttonhome .button-text {
+  position: relative;
+  display: inline-block;
+  color: inherit; /* Ensure the text color is inherited */
+}
+
+.buttonhome .button-text::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px; /* Adjust the position as needed */
+  left: 50%;
+  background-color: #00a651;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.buttonhome:hover .button-text::before {
+  width: 100%;
+  left: 0;
+}
+@media (min-width: 992px) {
+  html,
+  body {
+    padding: 2.5rem 5rem;
+  }
+}
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 5rem 0 3rem;
+}
+
+.search {
+  position: relative;
+}
+.search__input {
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 2px solid var(--primary);
+  background: var(--white);
+  color: var(--dark);
+  font-size: 16px;
+  border-radius: 2rem;
+  font-family: "Manrope", sans-serif;
+  transition: border 0.3s ease;
+}
+body.dark-mode .search__input {
+  background-color: #00110c;
+  color: white;
+}
+.search__button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1rem;
+  color: var(--primary);
+  background: transparent;
+  border: 0;
+}
+
+.button {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  font-family: "Manrope", sans-serif;
+  border-radius: 2rem;
+  border: 2px solid var(--primary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.button.--active {
+  background: var(--primary);
+  color: var(--light);
+}
+.button:hover {
+  background: var(--primary);
+  color: var(--light);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr); /* Set to 5 columns */
+    gap: 2rem; /* Adjust gap as needed */
+  }
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.25s;
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  width: 100%; /* Ensure cards take full width of column */
+}
+body.dark-mode .card {
+  background: #00110c;
+  color: white;
+  box-shadow: none;
+  border: 1px solid #002c15;
+}
+
+.card.slide-up {
+  animation: slide-up 0.7s forwards;
+}
+
+.card--inactive {
+  display: none;
+}
+
+.card__picture {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.25s;
+}
+.card__picture:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(var(--dark-rgb), 0) 25%,
+    rgba(var(--dark-rgb), 0.7)
+  );
+  z-index: 1;
+}
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s;
+}
+.card__content {
+  padding: 1.5rem 1rem; /* Reduce the padding */
+  position: relative;
+}
+.card__title {
+  font-size: 1.2rem; /* Reduce the font size */
+  font-weight: 700;
+  margin-bottom: 0.75rem; /* Reduce the margin */
+  transition: color 0.3s ease;
+}
+
+.card__more {
+  position: relative;
+  margin: -0.75rem 0.75rem -0.75rem 0; /* Reduce the margin */
+  height: 1.5rem; /* Reduce the size */
+  width: 1.5rem; /* Reduce the size */
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s;
+  z-index: 2;
+}
+@media (min-width: 992px) {
+  .card__more {
+    margin: -1rem -1rem 0; /* Adjust the margin for larger screens */
+  }
+}
+.card__location {
+  font-size: 1rem; /* Reduce the font size */
+  font-weight: 700;
+  margin-bottom: 0.25rem; /* Reduce the margin */
+  transition: color 0.3s ease;
+}
+.card__description {
+  font-size: 0.9rem; /* Reduce the font size */
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.05);
+}
+.card:hover .card__more {
+  background-color: var(--primary);
+}
+.card:hover .card__title {
+  color: #00a651;
+}
+.card:hover .card__location {
+  color: #00a651;
+}
+.card:hover .card__description {
+  color: #00a651;
+}
+.grid .card.--inactive {
+  display: none;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: none;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-top: -60px;
+    margin-bottom: -60px;
+    margin-left: -25px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .buttonhome {
+    font-size: 15px;
+    margin-bottom: -60px;
+  }
+  .search__input {
+    width: 330px;
+  }
+  .button {
+    padding: 0.3rem 1rem;
+  }
+  .card__location {
+    font-size: 12px;
+    margin-top: -20px;
+  }
+  .card__title {
+    font-size: 15px;
+    margin-top: 5px;
+  }
+  .card__description {
+    font-size: 10px;
+    margin-top: -5px;
+  }
+  .card__content {
+    padding: 2rem 0.4rem; /* Reduce the padding */
+    position: relative;
+  }
+  .card {
+    border-radius: 12px;
+    height: 150px;
+  }
+}

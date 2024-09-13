@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <link rel="icon" type="image/ico" href="public/favicon.ico" />
     <title>Log in to your account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -585,7 +585,7 @@
     <div id="card">
       <div id="card-content">
         <div class="logo">
-          <img src="/kuetlogo.webp" alt="logo" width="70" />
+          <img src="public/kuetlogo.webp" alt="logo" width="70" />
           <!-- Adjust width as needed -->
         </div>
         <div id="card-title">
@@ -620,7 +620,7 @@
           </div>
           <div class="form-border"></div>
           <div id="link-container">
-            <a href="dev.html" id="link-item2">
+            <a href="public/dev.html" id="link-item2">
               <legend class="link-item2">Forgot password?</legend>
             </a>
           </div>
@@ -630,7 +630,7 @@
     </div>
     <div class="container2">
       <p class="return2home">
-        <a href="http://192.168.0.102:3008" id="return"
+        <a href="../index.html" id="return"
           ><i class="material-icons">arrow_back</i> Return to homepage</a
         >
       </p>
@@ -664,7 +664,7 @@
         .addEventListener("click", function (event) {
           event.preventDefault(); // Prevent default link behavior
           showProgressBar(function () {
-            window.location.href = "dev.html"; // Redirect after progress bar animation completes
+            window.location.href = "public/dev.html"; // Redirect after progress bar animation completes
           }); // Show progress bar when link is clicked
         });
 
@@ -674,7 +674,7 @@
         .addEventListener("click", function (event) {
           event.preventDefault(); // Prevent default link behavior
           showProgressBar(function () {
-            window.location.href = "http://192.168.0.102:3008"; // Redirect after progress bar animation completes
+            window.location.href = "../index.html"; // Redirect after progress bar animation completes
           }); // Show progress bar when link is clicked
         });
 
