@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" href="public/favicon.ico" />
+    <title>KUET-StudyMaterials</title>
+    <link rel="preload" href="public/Kuet-hill.webp" as="image" type="image/webp">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.5/flickity.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.5/flickity.pkgd.min.js"></script>
+  </head>
+
+  <body>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+    <nav class="Navbar">
+      <div class="container">
+        <a href="http://192.168.0.102:3008">
+        <div class="Logo">
+          <img src="public/kuetlogo.webp" alt="Logo" class="logo-image" />
+        </div></a>
+        <div><p class="heading"><span>KUET</span>-Study<span style="color: #00f276;">Materials</span></p></div>
+        <div id="menu" class="menu">
+          <header class="inline">
+            <div class="Logo" style="margin-top: 13px;">Study<span class="gradient-text">Materials</span></div>
+            <button
+              id="closeMenuBtn"
+              title="Close Menu"
+              aria-label="Close Menu"
+              class="NavButton"
+            >
+              <i class="ri-close-line"></i>
+            </button>
+          </header>
+
+          <a href="#homepage" class="NavLink">Home</a>
+          <a
+    href="http://192.168.0.102:2998/login"
+    target="_blank"
+    class="NavLink"
+>Teacher's login</a>
+
+
+
+          <a
+            href="http://192.168.0.102:2999/login"
+            target="_blank"
+            class="NavLink"
+            >Student's login</a
+          >
+          <a href="#contributions" class="NavLink">Top Contributions</a>
+          <a href="#five" class="NavLink">Contribute yourself</a>
+          <a href="#glance" class="NavLink">At a glance</a>
+          <a href="#six" class="NavLink">Join our team</a>
+          <a href="About-us/about.html" class="NavLink">About us</a>
+        </div>
+
+        <button
+          id="openMenuBtn"
+          title="Open Menu"
+          aria-label="Open Menu"
+          class="NavButton"
+        >
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </nav>
+    <main>
+      <section id="homepage">
+        <iframe src="Hero-section/hero.html" class="iframe" class="landingh"></iframe>
+      </section>
+      <div class="divider-container">
+        <div class="divider"></div>
+    </div>
+      <section id="home">
+        <div class="left-an">
+        <div id="discover" class="fold" style="background-color: #000a07;">
+          <div class="subject" style="margin-top: 100px; margin-bottom: 100px;">
+            <p class="ultimate">
+              Your ultimate
+              <span class="gradient-text"><strong> engineering resource hub</strong></span> is here.</br>Providing a collaborative platform for both teachers and students.
+            </p> 
+          </div>
+        </div>
+      </div>
+      </section>
+       <!-- /process-->
+    <div class="divider-container">
+      <div class="divider"></div>
+  </div>
+      <div class="hero-slider" data-carousel>
+        <div
+          class="carousel-cell"
+          style="
+            background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/faculty.webp);
+          "
+        >
+          <div class="overlay"></div>
+          <div class="inner">
+            <div class="right-an">
+            <h2 class="title"><strong>Teacher's <span class="gradient-text">Panel</span></strong></h2>
+          </div>
+          <div class="left-an">
+            <a href="http://192.168.0.102:2998/login" target="_blank" class="btn"
+              >Visit now</a
+            >
+          </div> 
+          </div>
+        </div>
+        <div
+          class="carousel-cell"
+          style="
+            background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/contribution.webp);
+          "
+        >
+          <div class="overlay"></div>
+          <div class="inner">
+            <h2 class="title"><strong>Contribution <span class="gradient-text">Corner</span></strong></h2>
+            <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+              >Contribute now</a
+            > 
+          </div>
+        </div>
+        <div
+          class="carousel-cell"
+          style="
+            background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/books.webp);
+          "
+        >
+          <div class="overlay"></div>
+          <div class="inner">
+            <h2 class="title"><strong>Books <span class="gradient-text">Zone</span></strong></h2>
+            <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+              >Download PDF's</a
+            > 
+          </div>
+        </div>
+        <div
+          class="carousel-cell"
+          style="
+            background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/manuals.webp);
+          "
+        >
+          <div class="overlay"></div>
+          <div class="inner">
+            <h2 class="title"><strong>Lab <span class="gradient-text">Manuals</span></strong></h2>
+            <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+              >Get your manuals</a
+            > 
+          </div>
+        </div>
+        <div
+          class="carousel-cell"
+          style="
+            background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/Notes.webp);
+          "
+        >
+          <div class="overlay"></div>
+          <div class="inner">
+            <h2 class="title"><strong>Notes <span class="gradient-text">Section</span></strong></h2>
+            <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+              >Grab your notes</a
+            > 
+          </div>
+        </div>
+        <div
+          class="carousel-cell"
+          style="
+            background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/qb.webp);
+          "
+        >
+          <div class="overlay"></div>
+          <div class="inner">
+            <h2 class="title"><strong>Question <span class="gradient-text">Bank</span></strong></h2>
+            <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+              >Visit now</a
+            > 
+          </div>
+        </div>
+        <div
+        class="carousel-cell"
+        style="
+          background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/slide.webp);
+        "
+      >
+        <div class="overlay"></div>
+        <div class="inner">
+          <h2 class="title"><strong>Slide<span class="gradient-text">shows</span></strong></h2>
+          <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+            >Visit now</a
+          > 
+        </div>
+      </div>
+      <div
+        class="carousel-cell"
+        style="
+          background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/softhigh.webp);
+        "
+      >
+        <div class="overlay"></div>
+        <div class="inner">
+          <h2 class="title"><strong>Softwares <span class="gradient-text">Corner</span></strong></h2>
+          <a href="http://192.168.0.102:2999/login" target="_blank" class="btn"
+            >Download now</a
+          > 
+        </div>
+      </div>
+      <div
+        class="carousel-cell"
+        style="
+          background-image: linear-gradient(to top, RGBA(0, 0, 0, 0.2), RGBA(0, 0, 0, 0.8)),url(public/join.webp);
+        "
+      >
+        <div class="overlay"></div>
+        <div class="inner">
+          <h2 class="title"><strong>Join <span class="gradient-text">Us</span></strong></h2>
+          <a href="Join-us/join.html" target="_blank" class="btn"
+            >Join our team</a
+          > 
+        </div>
+      </div>
+      </div>
+      <div class="divider-container">
+        <div class="divider"></div>
+    </div>
+      <section id="contributions" class="schedule">
+        <div class="subject">
+          <div class="container">
+            <div class="left-an">
+            <div class="table-wrapper">
+              <h3 class="topcon" style="color: white;">
+                <strong>Top <span class="gradient-text">Contributing</span> Departments</strong>
+              </h3>
+              <table id="contributionsTable" style="user-select: none;">
+                <tr class="topconr1">
+                  <th>Departments</th>
+                  <th>Total contributions(Files)</th>
+                </tr>
+                <tr class="topconr1">
+                  <td>EEE</td>
+                  <td><span id="contributionsEEE">15</span></td>
+                </tr>
+                <tr class="topconr1">
+                  <td>CSE</td>
+                  <td><span id="contributionsCSE">23</span></td>
+                </tr>
+                <tr class="topconr1">
+                  <td>CIVIL</td>
+                  <td><span id="contributionsCIVIL">9</span></td>
+                </tr>
+                <tr class="topconr1">
+                  <td>ME</td>
+                  <td><span id="contributionsME">11</span></td>
+                </tr>
+                <tr class="topconr1"> 
+                  <td>ECE</td>
+                  <td><span id="contributionsECE">17</span></td>
+                </tr>
+                <!-- Add more rows for other departments -->
+              </table>
+            </div>
+            </div>
+            <div class="right-an">
+            <div class="table-wrapper">
+              <h3 class="topcon" style="color: white;">
+                <strong>Top <span class="gradient-text">Contributors</span> this <span style="color: white;">week</span></strong>
+              </h3>
+              <table style="user-select: none;">
+                <tr class="topconr1">
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Batch</th>
+                </tr>
+                <tr class="topconr1">
+                  <td>Debraj Rohan</td>
+                  <td>ECE</td>
+                  <td>2k21</td>
+                </tr class="topconr1">
+                <tr>
+                  <td>Mahimul Haque</td>
+                  <td>MTE</td>
+                  <td>2k21</td>
+                </tr>
+                <tr class="topconr1">
+                  <td>Shahid</td>
+                  <td>ESE</td>
+                  <td>2k21</td>
+                </tr>
+                <tr class="topconr1">
+                  <td>Dibyo</td>
+                  <td>CE</td>
+                  <td>2k21</td>
+                </tr>
+                <tr>
+                  <td>Mahi</td>
+                  <td>EEE</td>
+                  <td>2k21</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+      <div class="divider-container">
+        <div class="divider"></div>
+    </div>
+      <section id="five">
+        <div class="left-an">
+        <h5 style="user-select: none;">Contribution</h5>
+        <h1 style="user-select: none;">Share your valuable <span class="gradient-text">notes</span> to enrich this platform.</h1>
+        <button class="joinbtn w-joinbtn" onclick="location.href='http://192.168.0.102:2999/login'">Share now</button>
+      </div></section>
+      <div class="divider-container">
+        <div class="divider"></div>
+    </div>
+      <section id="glance" class="cards"> 
+        <section class="hero-section">
+          <div class="containerg">
+            <h1 class="hero-section_title" style="margin-top: 70px; color: white;"><div class="left-an"><strong>Study<span class="gradient-text">Materials</span></div></strong><div class="right-an"> at a glance</div></h1>
+            <div class="up">
+            <div class="hero-section_cards">
+              <div class="hero-section_card card-1">
+                <div class="hero-section_card_content">
+                  <h2 class="hero-section_card_title">Users</h2>
+                  <p class="hero-section_card_description">There are a total of 349 teachers and 5,240 students currently using this platform.</p>
+                </div>
+              </div>
+              <div class="hero-section_card card-2">
+                <div class="hero-section_card_content">
+                  <h2 class="hero-section_card_title">Total resources</h2>
+                  <p class="hero-section_card_description">There are now 12,367 books, 23,678 notes from the students, 2,990 lab manuals, 68 softwares, 42 sets of questions, and 9,345 PowerPoint slides available on this site.</p>
+                </div>
+              </div>
+              <div class="hero-section_card card-3">
+                <div class="hero-section_card_content">
+                  <h2 class="hero-section_card_title">Total contribution</h2>
+                  <p class="hero-section_card_description">A total of 31,975 files have been shared among the students.</p>
+                </div>
+              </div>
+              <div class="hero-section_card card-4">
+                <div class="hero-section_card_content">
+                  <h2 class="hero-section_card_title">Dev teams</h2>
+                  <p class="hero-section_card_description">Currently, 22 developers are working behind the scenes on monetization and version control.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+      <div style="background-color: #000a07;">
+        <h1 class="hero-section_title" style="color: white; background-color: #000a07;"><div class="left-an"><strong>Testimonials from the </div><div class="right-an"><span class="gradient-text">Teachers</span></div></strong></h1>
+      </div>
+        <iframe src="Testimonials/testimonials.html" title="testimonial" class="itest"></iframe>  
+      <div class="divider-container2">
+        <div class="divider2"></div>
+    </div>
+        <section id="six">
+          <div class="left-an">
+          <h5 style="user-select: none; color: white;">Join us</h5>
+          <h1 style="user-select: none;">Join our team as a <span class="gradient-text">Web developer </span>and manage this community</h1>
+          <button class="joinbtn w-joinbtn" onclick="location.href='Join-us/join.html'">Join now</button>
+        </div></section>
+        <div class="divider-container2">
+          <div class="divider2"></div>
+      </div>
+        <iframe src="Student-reviews/reviews.html" title="Feedback" width="100%" height="1000px"></iframe>
+        <div class="divider-container2">
+          <div class="divider2"></div>
+      </div>
+      </section>
+      
+      <section id="about" class="about">
+        
+        <footer>
+          <header>
+            <section id="logo">
+            <div class="logfooter">
+              <div class="left-an">  
+      <img src="public/logo.webp" alt="" class="h-10 me-5 small-logo">
+    </div>
+    </section>
+    </div>
+    <div class="left-an">
+            <h2><strong>Study<span class="gradient-text">Materials</span></strong></h2>
+          </div>
+          <div class="left-an">
+            <p style="font-weight: 50;" class="info">"This is a platform dedicated to facilitating seamless collaboration between <span style="color: #00a651;">teachers</span> and <span style="color: #24C5FF;">students</span>. Here, teachers can share their educational materials directly from their storage to the <strong>student corner</strong>. Our user-friendly interface empowers teachers to effortlessly upload and distribute <strong>lecture notes</strong>, <strong>textbooks</strong>, <strong>software</strong>, <strong>questions</strong>, <strong>exam results</strong>, and more to enhance student learning experiences.At StudyMaterials, we prioritize <strong>security and privacy</strong>, ensuring that teachers can trust their valuable resources are shared securely with their students. Our platform fosters a culture of knowledge exchange and collaboration, allowing students to access a diverse range of educational content and engage with their studies effectively.We firmly believe that</br></br></br><span style="text-align: center; font-style: italic;">"A <span style="color: #24C5FF;">candle</span> loses nothing by lighting another <span style="color: #24C5FF;">candle.</span>"</br>-James Keller</span></br></br></br></p>
+          </div>
+          <div class="up">
+            <ul class='icons'>
+              <ion-icon class='icon' name="logo-facebook"></ion-icon>
+              <ion-icon class='icon' name="logo-instagram"></ion-icon>
+              <ion-icon class='icon' name="mail-outline"></ion-icon>
+            </ul>
+          </div>
+          </header>
+          <aside>
+            <div class="right-an">
+            <ul class='category'>
+              <li>
+                <h3 class="quick"><strong>Quick access</strong></h3>
+              </li>
+              <li><a href="http://192.168.0.102:2998/login" style="text-decoration: none;">Teacher's login</a></li>
+              <li><a href="http://192.168.0.102:2999/login" style="text-decoration: none;">Student login</a></li>
+              <li><a href="http://192.168.0.102:2999/login" style="text-decoration: none;">Contribute now</a></li>
+              <li><a href="http://192.168.0.102:2999/login" style="text-decoration: none;">1st year</a></li>
+              <li><a href="Under-development/dev.html" style="text-decoration: none;">2nd year</a></li>
+              <li><a href="Under-development/dev.html" style="text-decoration: none;">3rd year</a></li>
+              <li><a href="Under-development/dev.html" style="text-decoration: none;">4th year</a></li>
+            </ul>
+          </div>
+          <div class="right-an">
+            <ul class='category'>
+              <li>
+                <h3 class="important"><strong>Important links</strong></h3>
+              </li>
+              <li><a href="https://www.kuet.ac.bd/" style="text-decoration: none;">KUET</a></li>
+              <li><a href="http://library.kuet.ac.bd:8000/" style="text-decoration: none;">Central library</a></li>
+            </ul>
+            </div>
+          </aside>
+          
+        </footer>
+        <p class="credit">
+          ©2024, Designed and developed by
+          <a
+            href="https://teamsiliconx.github.io/aboutus"
+            style="color: #4cf0f9; text-decoration: none;"
+            >Siliconx Softwares</a
+          > (ECE, KUET).</br>Powered by Central Computer Center(KUET). All rights reserved.
+        </p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
