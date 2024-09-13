@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Password Finder</title>
+    <style>
+        body {
+            font-family: "Manrope", sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        /* Default scrollbar styles */
+      body::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: var(
+          --scrollbar-thumb-color,
+          #ccc
+        ); /* Default thumb color */
+        border-radius: 6px; /* Rounded corners of the scrollbar thumb */
+      }
+
+      /* Dark mode scrollbar styles */
+      body.dark-mode::-webkit-scrollbar-thumb {
+        background-color: var(
+          --scrollbar-thumb-color,
+          #333
+        ); /* Dark mode thumb color */
+      }
+
+      /* Light mode scrollbar styles */
+      body.light-mode::-webkit-scrollbar-thumb {
+        background-color: var(
+          --scrollbar-thumb-color,
+          #ccc
+        ); /* Light mode thumb color */
+      }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        body.dark-mode .footer{
+            background-color: black;
+            color: white;
+            font-size: 10px;
+        }
+        body.dark-mode .container
+        {
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            transition: border 0.3s ease;
+        }
+        body.dark-mode .container:hover
+        {
+            background-color: #0a0a0a;
+            border: 1px solid #771315;
+        }
+        .container {
+          font-family: "Manrope", sans-serif;
+        background-color: #ffffff;
+        padding: 70px;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        transition: box-shadow 0.3s ease;
+      }
+        .container:hover {
+            transform: scale(1);
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="email"], button {
+          font-family: "Manrope", sans-serif;
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        body.dark-mode input[type="email"], button {
+          background-color: #0a0a0a;
+          color: white;
+        }
+        button {
+            background-color: #f22c2f;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #771315;
+        }
+        #passwordDisplay {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .footer {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px 0;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            body{
+                height: 93vh;
+            }
+            .container {
+                padding: 50px;
+                margin-top: 200px;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+            }
+            .container:hover {
+            transform: scale(1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        }
+        .header-container .buttonhome {
+    margin-top: 160px;
+    margin-bottom: -100px;
+}
+            input[type="email"], button {
+                width: 100%;
+                margin-left: 0;
+            }
+            .container2{
+              display: none;
+            }
+            .footer
+            {
+              font-size: 8px;
+            }
+            body.dark-mode .footer
+            {
+              font-size: 8px;
+            }
+            body.dark-mode .container:hover
+        {
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+        }
+        }
+      #progress-container {
+        position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#progress-bar {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    height: 100%;
+    background-color: #f22c2f;
+    transform: translateX(-100%);
+    animation: indeterminate 1s infinite;
+}
+
+@keyframes indeterminate {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+      /* Toggle Switch Styles */
+      .toggle-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+      }
+
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: poManrope;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #00a651;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      .finder{
+        color: #f22c2f;
+        transition: color 0.3s ease;
+      }
+
+      .container2 {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        margin-top: -200px;
+        font-size: 15px;
+        text-align: center;
+      }
+      body.dark-mode .container2 {
+        background-color:#0a0a0a;
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #333;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        margin-top: -200px;
+        font-size: 15px;
+        text-align: center;
+        transition: border 0.3s ease;
+      }
+      body.dark-mode .container2:hover {
+        border: 1px solid #771315;
+      }
+      /* Specificity increased for .buttonhome */
+.header-container .buttonhome {
+    color: #f22c2f;
+    font-size: 15px;
+    font-weight: 200;
+    padding: 0.75rem 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    margin-top: 140px;
+    margin-bottom: -200px;
+}
+
+.header-container .buttonhome .material-icons {
+    vertical-align: middle;
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.header-container .buttonhome .button-text {
+    position: relative;
+    display: inline-block;
+    color: inherit; /* Ensure the text color is inherited */
+}
+
+.header-container .buttonhome .button-text::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px; /* Adjust the position as needed */
+    left: 50%;
+    background-color: #f22c2f; /* Set your desired underline color here */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.header-container .buttonhome:hover .button-text::before {
+    width: 100%;
+    left: 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+      <div class="header-container">
+        <button class="buttonhome" id="return">
+            <i class="material-icons">lock_open</i>
+            <span class="button-text">Return to login</span>
+        </button>
+    </div>
+    
+    <div class="container">
+        <h1>Password <span class="finder"><strong>Finder</strong></span></h1>
+        <form id="passwordForm">
+            <input type="email" name="email" placeholder="Enter your KUET provided Email" required>
+            <button type="submit" class="rounded-button" id="find">Find your password</button>
+        </form>
+        <div id="passwordDisplay"></div>
+    </div>
+    <div class="container2">
+        <p>
+          To retrieve your StudyMaterials account password,</br class="break">please provide your your KUET <span style="color:#f22c2f;"><strong> e-mail address</strong></span>.</br class="break">Your password will be sent to your e-mail.
+        </p>
+      </div>
+    <div class="toggle-container">
+        <p class="darktext">Dark mode</p>
+        <label class="toggle-switch">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    <div class="footer">
+        ©2024, Designed and developed by
+        <a href="https://teamsiliconx.github.io/aboutus" style="color: #00a651; text-decoration: none;">Siliconx Softwares</a>
+        (ECE, KUET). Powered by Central Computer Center(KUET). All rights reserved.
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#passwordForm").submit(function (event) {
+                event.preventDefault();
+                const formData = $(this).serialize();
+                $.post("/login", formData, function (response) {
+                    $("#passwordDisplay").text(response);
+                }).fail(function (err) {
+                    $("#passwordDisplay").text(err.responseText);
+                });
+            });
+        });
+
+         // Function to show progress bar for 1 second
+      function showProgressBar(callback) {
+        // Show progress bar
+        document.getElementById("progress-bar").style.display = "block";
+
+        // Hide progress bar after 1 second
+        setTimeout(function () {
+          document.getElementById("progress-bar").style.display = "none";
+          if (callback) {
+            callback(); // Execute callback function
+          }
+        }, 1000);
+      }
+      window.addEventListener("load", function () {
+        showProgressBar(); // Show progress bar on page load
+      });
+
+      // Attach click event listener to "Don't have an account?" link
+      document
+        .getElementById("return")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          showProgressBar(function () {
+            window.location.href = "http://192.168.0.102:2999/login"; // Redirect after progress bar animation completes
+          }); // Show progress bar when link is clicked
+        });
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const toggleButton = document.getElementById("theme-toggle");
+
+        // Function to set theme
+        const setTheme = (theme) => {
+          if (theme === "dark-mode") {
+            document.body.classList.add("dark-mode");
+            document.body.classList.remove("light-mode");
+            toggleButton.checked = true;
+          } else {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+            toggleButton.checked = false;
+          }
+          updateScrollbarColor(theme); // Update scrollbar color based on theme
+        };
+
+        // Function to detect and apply system theme preference
+        const applySystemThemePreference = () => {
+          const prefersDarkScheme = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDarkScheme ? "dark-mode" : "light-mode");
+        };
+
+        // Load user's theme preference from localStorage
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme) {
+          setTheme(currentTheme);
+        } else {
+          applySystemThemePreference(); // Apply system theme preference initially
+        }
+
+        // Listen for changes in the theme toggle button
+        toggleButton.addEventListener("change", () => {
+          const newTheme = toggleButton.checked ? "dark-mode" : "light-mode";
+          setTheme(newTheme);
+          // Save user's preference to localStorage
+          if (newTheme === "dark-mode") {
+            localStorage.setItem("theme", "dark-mode");
+          } else {
+            localStorage.removeItem("theme");
+          }
+        });
+
+        // Listen for changes in system theme preference
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+              // Only change if user has not set a preference
+              applySystemThemePreference();
+            }
+          });
+
+        // Function to update scrollbar color based on theme
+        const updateScrollbarColor = (theme) => {
+          // Determine the scrollbar thumb color based on the theme
+          const scrollbarThumbColor = theme === "dark-mode" ? "#333" : "#ccc";
+          // Set the scrollbar thumb color dynamically using CSS variables
+          document.documentElement.style.setProperty(
+            "--scrollbar-thumb-color",
+            scrollbarThumbColor
+          );
+        };
+      });
+    </script>
+    
+</body>
+</html>
