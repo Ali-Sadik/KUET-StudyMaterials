@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+
+    <title>Log in to your account</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: white;
+        background-size: cover;
+        background-position: top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+      }
+      /* Default scrollbar styles */
+      body::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: var(
+          --scrollbar-thumb-color,
+          #ccc
+        ); /* Default thumb color */
+        border-radius: 6px; /* Rounded corners of the scrollbar thumb */
+      }
+
+      /* Dark mode scrollbar styles */
+      body.dark-mode::-webkit-scrollbar-thumb {
+        background-color: var(
+          --scrollbar-thumb-color,
+          #333
+        ); /* Dark mode thumb color */
+      }
+
+      /* Light mode scrollbar styles */
+      body.light-mode::-webkit-scrollbar-thumb {
+        background-color: var(
+          --scrollbar-thumb-color,
+          #ccc
+        ); /* Light mode thumb color */
+      }
+
+      label {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      #card {
+        font-family: "Manrope", sans-serif;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        height: 570px;
+        width: 400px;
+        margin: auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      #card:hover {
+        transform: scale(1);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+      }
+
+      #card-content {
+        padding: 24px 44px;
+      }
+
+      #card-title {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      #title {
+        font-family: "Manrope", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        text-align: left;
+        margin-left: -1500px;
+        color: white;
+        margin-top: 10px;
+      }
+      #submit-btn {
+        font-family: "Manrope", sans-serif;
+        background: #00a651;
+        border: none;
+        border-radius: 8px;
+        cursor: poManrope;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        height: 42.3px;
+        margin: 30px auto 0;
+        transition: 0.25s;
+        width: 100%;
+        transition: background-color 0.3s;
+      }
+
+      #submit-btn:hover {
+        background-color: #0e5e35;
+        transform: none;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-border {
+        background: -webkit-linear-gradient(right, #00a651, #00a651);
+        height: 1px;
+        width: 100%;
+      }
+
+      .form-content {
+        font-family: "Manrope", sans-serif;
+        background: #ffffff;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-bottom: 16px;
+        padding: 12px;
+        width: 100%;
+      }
+
+      .underline-title {
+        background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+        height: 2px;
+        margin: -1.1rem auto 0 auto;
+        width: 89px;
+      }
+
+      .password-container {
+        position: relative;
+      }
+      .footer {
+        font-family: "Manrope", sans-serif;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+        padding: 10px 0;
+        color: black;
+        font-size: 12px;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: -60px;
+        margin-top: 20px;
+      }
+
+      .para {
+        font-size: 12px;
+        font-family: Manrope, sans-serif;
+        text-align: justify;
+        margin-top: 30px;
+      }
+      #progress-container {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        background-color: transparent;
+        overflow: hidden;
+      }
+
+      #progress-bar {
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #00a651, #00f276);
+        transform: translateX(-100%);
+        animation: indeterminate 1s infinite;
+      }
+
+      @keyframes indeterminate {
+        0% {
+          transform: translateX(-100%);
+        }
+        50% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      #link-container {
+        display: flex;
+        justify-content: space-between; /* Adjust this as needed */
+        gap: 10px; /* Add spacing between the items */
+      }
+
+      .link-item1 {
+        margin-top: 5px;
+        font-size: 12px; /* Adjust font size as needed */
+        cursor: poManrope;
+        text-decoration: none;
+        color: #8f93a2; /* Maintain link color */
+      }
+      .link-item2 {
+        margin-top: 5px;
+        font-size: 12px; /* Adjust font size as needed */
+        cursor: poManrope;
+        text-decoration: none;
+        color: #8f93a2; /* Maintain link color */
+      }
+
+      a {
+        text-decoration: none; /* Remove underline from links */
+      }
+
+      a:hover .link-item {
+        text-decoration: underline; /* Underline on hover */
+      }
+
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Dim background */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+      }
+
+      .modal h1 {
+        color: #ff0000;
+        margin-bottom: 20px;
+      }
+
+      .modal p {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 15px;
+        color: #fff;
+        background-color: #00a651;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin-bottom: 20px;
+      }
+
+      .btn:hover {
+        background-color: #0e5e35;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: poManrope;
+      }
+
+      @media (width < 768px) {
+        body {
+          background-image: none;
+        }
+        #card {
+          box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+          border-radius: 12px;
+          height: 495px;
+          width: 350px;
+          margin: auto;
+          margin-top: 20px;
+        }
+        #card:hover {
+          transform: scale(1);
+          box-shadow: none;
+        }
+        #submit-btn {
+          border-radius: 8px;
+          width: 100%;
+        }
+        #submit-btn-hover {
+          box-shadow: 0 0 10px white;
+        }
+        .form-content {
+          border: 1px solid #ccc;
+          width: 90%;
+        }
+
+        #title {
+          display: none;
+        }
+
+        #card-title {
+          font-size: 20px;
+        }
+
+        .para {
+          font-size: 8px;
+          margin-top: 23px;
+          text-align: center;
+        }
+        .footer {
+          color: black;
+          font-size: 8px;
+        }
+        .form-border {
+          display: none;
+        }
+        body {
+          height: 93vh;
+        }
+        .modal-content {
+          max-width: 320px;
+        }
+        .modal p {
+          font-size: 12px;
+        }
+        body.dark-mode #card {
+          box-shadow: none;
+          height: 510px;
+        }
+        body.dark-mode #card:hover {
+          box-shadow: none;
+        }
+        body.dark-mode .buttonhome {
+          margin-top: 40px;
+          margin-bottom: -40px;
+          z-index: 999;
+        }
+        .buttonhome {
+          margin-top: 80px;
+          margin-bottom: -80px;
+          z-index: 999;
+        }
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: poManrope;
+        font-size: 12px;
+        color: #00a651;
+      }
+
+      /* Toggle Switch Styles */
+      .toggle-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+      }
+
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: poManrope;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #00a651;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      body.dark-mode {
+        background-color: #000a07;
+        color: white;
+      }
+      body.dark-mode .modal-content {
+        background-color: #0a0a0a;
+        color: #cccccc;
+        border: 1px solid #333;
+      }
+      body.dark-mode #card {
+        background-color: #00110c;
+        color: white;
+        border: 1px solid #333;
+      }
+      body.dark-mode #card:hover {
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+      }
+      body.dark-mode #submit-btn {
+        background: #00a651;
+        border-color: transparent;
+        border-radius: 8px;
+        color: white;
+      }
+      body.dark-mode .form-content {
+        border-radius: 4px;
+        background-color: #00110c;
+      }
+      body.dark-mode #submit-btn:hover {
+        background: #0e5e35;
+        color: white;
+      }
+      body.dark-mode .footer {
+        color: #cccccc;
+      }
+      body.dark-mode .modal-content {
+        background-color: #00110c;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+      }
+
+      body.dark-mode .modal h1 {
+        color: #ff0000;
+      }
+
+      body.dark-mode .modal p {
+        color: #cccccc;
+      }
+      body.dark-mode .close-btn {
+        color: white;
+      }
+      body.dark-mode .form-content {
+        color: #cccccc;
+      }
+      .account {
+        color: #00a651;
+        transition: color 0.3s ease;
+      }
+
+      #card:hover .account {
+        color: #00a651;
+      }
+
+      body.dark-mode .account {
+        color: #00a651;
+        transition: color 0.3s ease;
+      }
+
+      body.dark-mode #card:hover .account {
+        color: #00a651;
+      }
+      .header-container {
+        display: flex;
+        align-items: center; /* Align items vertically */
+        gap: 2710px;
+        margin-top: 5px;
+      }
+
+      .buttonhome {
+        color: #00a651;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 0.75rem 2rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-right: 20px; /* Space between button and title */
+        position: relative; /* For positioning the pseudo-element */
+        text-decoration: none;
+      }
+
+      .buttonhome .material-icons {
+        vertical-align: middle;
+        margin-right: 5px; /* Space between icon and text */
+      }
+
+      .buttonhome .button-text {
+        position: relative;
+        display: inline-block;
+        color: inherit; /* Ensure the text color is inherited */
+      }
+
+      .buttonhome .button-text::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -3px; /* Adjust the position as needed */
+        left: 50%;
+        background-color: #00a651;
+        transition: width 0.3s ease, left 0.3s ease;
+      }
+
+      .buttonhome:hover .button-text::before {
+        width: 100%;
+        left: 0;
+      }
+
+      #title {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: left;
+        color: black;
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #00a651, #00f276);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      body.dark-mode #title {
+        color: white;
+      }
+      .material-icons {
+        /* Adjust size and other properties if needed */
+        font-size: inherit;
+        vertical-align: middle;
+      }
+
+      @media(max-height:900px){
+        .header-container{
+          gap: 2300px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="header-container">
+      <button class="buttonhome" id="home">
+        <i class="material-icons">home</i>
+        <span class="button-text">Home</span>
+      </button>
+      <div id="title">
+        <h2>Study<span class="gradient-text">Materials</span></h2>
+      </div>
+    </div>
+    <div id="card" style="margin-top: 50px">
+      <div id="card-content">
+        <div id="card-title">
+          <h3>Log in to your <span class="gradient-text">account</span></h3>
+          <div class="underline-title" style="margin-top: 30px"></div>
+        </div>
+        <form method="post" class="form">
+          <label for="user-roll">Roll:</label>
+          <input
+            id="user-roll"
+            class="form-content"
+            type="text"
+            name="roll"
+            autocomplete="on"
+            required
+            style="font-family: Manrope, sans-serif"
+          />
+          <div class="form-border"></div>
+          <label for="user-password">Password:</label>
+          <div class="password-container">
+            <input
+              id="user-password"
+              class="form-content"
+              type="password"
+              name="password"
+              required
+              style="font-family: Manrope, sans-serif"
+            />
+            <span class="toggle-password" onclick="togglePasswordVisibility()"
+              >Show password</span
+            >
+          </div>
+          <div class="form-border"></div>
+          <div id="link-container">
+            <a href="dev.html" id="link-item1">
+              <legend class="link-item1">Don't have an account?</legend>
+            </a>
+            <a href="http://192.168.0.102:3050" id="link-item2">
+              <legend class="link-item2">Forgot password?</legend>
+            </a>
+          </div>
+
+          <input
+            id="submit-btn"
+            type="submit"
+            name="submit"
+            value="LOGIN"
+            style="font-family: Manrope, sans-serif"
+          />
+        </form>
+
+        <p class="para">
+          Please ensure that your <span style="color: #00a651">roll</span> and
+          <span style="color: #00a651">password</span> are entered correctly. If
+          you encounter difficulties logging into your account, please proceed
+          to the <span style="color: #00a651">'Forgot password'</span> section
+          and follow the instructions to retrieve your password.
+        </p>
+      </div>
+    </div>
+    <div class="modal" id="errorModal">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <h1 id="errorTitle"></h1>
+        <p id="errorMessage"></p>
+      </div>
+    </div>
+    <div class="toggle-container">
+      <p class="darktext">Dark mode</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="footer">
+      ©2024, Designed and developed by
+      <a
+        href="https://teamsiliconx.github.io/aboutus"
+        style="color: #00a651; text-decoration: none"
+        id="Siliconx"
+        >Siliconx Softwares</a
+      >(ECE, KUET). Powered by Central Computer Center(KUET). All rights
+      reserved.
+    </div>
+    <script>
+      // Function to show progress bar for 1 second
+      function showProgressBar(callback) {
+        // Show progress bar
+        document.getElementById("progress-bar").style.display = "block";
+
+        // Hide progress bar after 1 second
+        setTimeout(function () {
+          document.getElementById("progress-bar").style.display = "none";
+          if (callback) {
+            callback(); // Execute callback function
+          }
+        }, 1000);
+      }
+
+      // Attach click event listener to "LOGIN" button
+      document
+        .getElementById("submit-btn")
+        .addEventListener("click", function (event) {
+          showProgressBar(); // Show progress bar when button is clicked
+        });
+
+      // Attach click event listener to "Don't have an account?" link
+      document
+        .getElementById("link-item1")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          showProgressBar(function () {
+            window.location.href = "dev.html"; // Redirect after progress bar animation completes
+          }); // Show progress bar when link is clicked
+        });
+
+      // Attach click event listener to "Forgot password?" link
+      document
+        .getElementById("link-item2")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          showProgressBar(function () {
+            window.location.href = "http://192.168.0.102:3050"; // Redirect after progress bar animation completes
+          }); // Show progress bar when link is clicked
+        });
+      document
+        .getElementById("home")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          showProgressBar(function () {
+            window.location.href = "http://192.168.0.102:3008"; // Redirect after progress bar animation completes
+          }); // Show progress bar when link is clicked
+        });
+      document
+        .getElementById("Siliconx")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          showProgressBar(function () {
+            window.location.href = "https://teamsiliconx.github.io/aboutus"; // Redirect after progress bar animation completes
+          }); // Show progress bar when link is clicked
+        });
+
+      // Show progress bar when page loads
+      window.addEventListener("load", function () {
+        showProgressBar();
+
+        // Check URL for error parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get("error");
+        if (error === "user-not-found") {
+          showModal(
+            "User Not Found!",
+            "The roll you entered does not exist in the database.If you are facing trouble again, please contact with the authority."
+          );
+          urlParams.delete("error"); // Remove error parameter
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          ); // Update URL without refreshing
+        } else if (error === "invalid-password") {
+          showModal(
+            "Invalid Password!",
+            "The password you entered is incorrect.Please check again your password and try again.If you are facing trouble again, please contact with the authority."
+          );
+          urlParams.delete("error"); // Remove error parameter
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          ); // Update URL without refreshing
+        }
+      });
+
+      // Function to show the modal with error message
+      function showModal(title, message) {
+        document.getElementById("errorTitle").textContent = title;
+        document.getElementById("errorMessage").textContent = message;
+        document.getElementById("errorModal").style.display = "flex";
+      }
+
+      // Function to close the modal
+      function closeModal() {
+        document.getElementById("errorModal").style.display = "none";
+      }
+      // Function to toggle password visibility
+      function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("user-password");
+        const togglePasswordText = document.querySelector(".toggle-password");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePasswordText.textContent = "Hide password";
+        } else {
+          passwordInput.type = "password";
+          togglePasswordText.textContent = "Show password";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const toggleButton = document.getElementById("theme-toggle");
+
+        // Function to set theme
+        const setTheme = (theme) => {
+          if (theme === "dark-mode") {
+            document.body.classList.add("dark-mode");
+            document.body.classList.remove("light-mode");
+            toggleButton.checked = true;
+          } else {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+            toggleButton.checked = false;
+          }
+          updateScrollbarColor(theme); // Update scrollbar color based on theme
+        };
+
+        // Function to detect and apply system theme preference
+        const applySystemThemePreference = () => {
+          const prefersDarkScheme = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDarkScheme ? "dark-mode" : "light-mode");
+        };
+
+        // Load user's theme preference from localStorage
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme) {
+          setTheme(currentTheme);
+        } else {
+          applySystemThemePreference(); // Apply system theme preference initially
+        }
+
+        // Listen for changes in the theme toggle button
+        toggleButton.addEventListener("change", () => {
+          const newTheme = toggleButton.checked ? "dark-mode" : "light-mode";
+          setTheme(newTheme);
+          // Save user's preference to localStorage
+          if (newTheme === "dark-mode") {
+            localStorage.setItem("theme", "dark-mode");
+          } else {
+            localStorage.removeItem("theme");
+          }
+        });
+
+        // Listen for changes in system theme preference
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+              // Only change if user has not set a preference
+              applySystemThemePreference();
+            }
+          });
+
+        // Function to update scrollbar color based on theme
+        const updateScrollbarColor = (theme) => {
+          // Determine the scrollbar thumb color based on the theme
+          const scrollbarThumbColor = theme === "dark-mode" ? "#333" : "#ccc";
+          // Set the scrollbar thumb color dynamically using CSS variables
+          document.documentElement.style.setProperty(
+            "--scrollbar-thumb-color",
+            scrollbarThumbColor
+          );
+        };
+      });
+    </script>
+  </body>
+</html>
